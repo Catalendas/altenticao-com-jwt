@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react"
-import { AuthContex } from "../context/AuthContext"
+import { AuthContext } from "../context/AuthContext"
 import { api } from "../services/api"
 
 export default function Deshboard() {
-    const { user } = useContext(AuthContex)
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         api.get('/me').then(response => console.log(response))

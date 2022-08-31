@@ -1,13 +1,13 @@
 
 import style from '../styles/Home.module.css'
 import { FormEvent, useContext, useState } from 'react'
-import { AuthContex } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthContext'
 
 export default function Home() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { signIn } = useContext(AuthContex)
+  const { signIn } = useContext(AuthContext)
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()

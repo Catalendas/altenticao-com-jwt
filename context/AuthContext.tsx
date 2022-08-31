@@ -25,7 +25,7 @@ type AuthProviderProps = {
 }
 
 
-export const AuthContex = createContext({} as AuthContextData)
+export const AuthContext = createContext({} as AuthContextData)
 
 export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User>()
@@ -52,11 +52,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
             const {roles, permissions, token, refreshToken} = response.data
     
-            setCookie(undefined, 'nextauth.toke', token, {
+            setCookie(undefined, 'nextauth.token', token, {
                 maxAge: 60 * 60 * 24 * 30, // 30 dias
                 path: '/'
             })
-            setCookie(undefined, 'nextauth.refreshtoke', refreshToken, {
+            setCookie(undefined, 'nextauth.refreshtoken', refreshToken, {
                 maxAge: 60 * 60 * 24 * 30, // 30 dias
                 path: '/'
             })
@@ -76,8 +76,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
     
     return(
-        <AuthContex.Provider value={{signIn, isAuthenticated, user }}>
+        <AuthContext.Provider value={{signIn, isAuthenticated, user }}>
             {children}
-        </AuthContex.Provider>
+        </AuthContext.Provider>
     )
 }
