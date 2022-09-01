@@ -10,6 +10,6 @@ export default function Deshboard() {
     } )
 
     return(
-        <h1>Deshboard: {user.email}</h1>
+        <h1>Deshboard: {user?.email}</h1>
     )
 }
